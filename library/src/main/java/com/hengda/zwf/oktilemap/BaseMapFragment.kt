@@ -248,34 +248,39 @@ abstract class BaseMapFragment : Fragment() {
         if (mapConfig.isMerge) {
             val copy = MergeUtil.copy(exhibits)
             if (tileView.scale >= mapConfig.mergeScale) {
-                for (exhibit in copy) {
-                    val exhibitMarker = genExhibitMarker(exhibit)
-                    exhibitMarkerMap.put(exhibit.fileNo, exhibitMarker)
-                    tileView.addMarker(exhibitMarker, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
-                }
+                placeNormalMarker(copy)
                 isMergeStatus = false
             } else {
-                for (list in MergeUtil.merge(copy, mapConfig.mergeDistance)) {
-                    val mergeMarker = genMergeMarker()
-                    val averLoc = MergeUtil.calAverCoords(list)
-                    mergeMarker.tag = averLoc
-                    tileView.addMarker(mergeMarker, averLoc.locX, averLoc.locY, mapConfig.anchorX, mapConfig.anchorY)
-                    mergeMarker.setOnClickListener {
-                        val (locX, locY) = mergeMarker.tag as Location
-                        tileView.scale = mapConfig.mergeScale
-                        tileView.slideToAndCenter(locX, locY)
-                        showMarker()
-                    }
-                    mergeMarkerList.add(mergeMarker)
-                }
+                val merge = MergeUtil.merge(copy, mapConfig.mergeDistance)
+                placeMergeMarker(merge)
                 isMergeStatus = true
             }
         } else {
-            for (exhibit in exhibits) {
-                val exhibitMarker = genExhibitMarker(exhibit)
-                exhibitMarkerMap.put(exhibit.fileNo, exhibitMarker)
-                tileView.addMarker(exhibitMarker, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
+            placeNormalMarker(exhibits)
+        }
+    }
+
+    private fun placeMergeMarker(merge: List<List<BaseExhibit>>) {
+        for (list in merge) {
+            val mergeMarker = genMergeMarker()
+            val averLoc = MergeUtil.calAverCoords(list)
+            mergeMarker.tag = averLoc
+            mergeMarker.setOnClickListener {
+                val (locX, locY) = mergeMarker.tag as Location
+                tileView.scale = mapConfig.mergeScale
+                tileView.slideToAndCenter(locX, locY)
+                showMarker()
             }
+            tileView.addMarker(mergeMarker, averLoc.locX, averLoc.locY, mapConfig.anchorX, mapConfig.anchorY)
+            mergeMarkerList.add(mergeMarker)
+        }
+    }
+
+    private fun placeNormalMarker(copy: MutableList<BaseExhibit>) {
+        for (exhibit in copy) {
+            val exhibitMarker = genExhibitMarker(exhibit)
+            exhibitMarkerMap.put(exhibit.fileNo, exhibitMarker)
+            tileView.addMarker(exhibitMarker, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
         }
     }
 

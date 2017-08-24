@@ -27,7 +27,6 @@ class BitmapProviderGlide : BitmapProvider {
             } catch (e: ExecutionException) {
                 e.printStackTrace()
             }
-
         }
         return null
     }
