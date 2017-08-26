@@ -18,7 +18,7 @@ class MapConfigBuilder {
     private var boundBottom: Double = 0.toDouble()
     private var initScale = 0f
     private var minScale = 0f
-    private var maxScale = 3f
+    private var maxScale = 2f
     private var anchorX = -0.5f
     private var anchorY = -1.0f
     private var formatNew = true

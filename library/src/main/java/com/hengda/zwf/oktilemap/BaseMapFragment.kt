@@ -142,7 +142,7 @@ abstract open class BaseMapFragment : Fragment() {
                 }
             }
 
-            override fun onZoomEnd(v: Float, origination: ZoomPanLayout.ZoomPanListener.Origination) {}
+            override fun onZoomEnd(scale: Float, origination: ZoomPanLayout.ZoomPanListener.Origination) {}
         })
     }
 
@@ -279,6 +279,7 @@ abstract open class BaseMapFragment : Fragment() {
     private fun placeNormalMarker(copy: MutableList<BaseExhibit>) {
         for (exhibit in copy) {
             val exhibitMarker = genExhibitMarker(exhibit)
+            exhibitMarker.tag = exhibit
             exhibitMarkerMap.put(exhibit.fileNo, exhibitMarker)
             tileView.addMarker(exhibitMarker, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
         }
