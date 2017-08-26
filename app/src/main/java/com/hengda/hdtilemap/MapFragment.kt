@@ -47,7 +47,7 @@ class MapFragment : BaseMapFragment() {
      */
     override fun genExhibitMarker(exhibit: BaseExhibit): ImageView {
         val marker = ImageView(context)
-        imageLoader.displayImage(activity, exhibit.mapPicLg, marker, 49, 59)
+        imageLoader.displayImage(context, exhibit.mapPicLg, marker, 49, 59)
         marker.setOnClickListener { showCallout(exhibit) }
         return marker
     }
@@ -69,11 +69,11 @@ class MapFragment : BaseMapFragment() {
      */
     override fun showCallout(exhibit: BaseExhibit) {
         val marker = exhibitMarkerMap[exhibit.fileNo]
+        callOut = View.inflate(context, R.layout.layout_tile_map_pop, null)
         val tvExhName = callOut.findViewById(R.id.tvExhName) as TextView
         val ivExhPopPic = callOut.findViewById(R.id.ivExhPopPic) as ImageView
         tvExhName.text = exhibit.name
         imageLoader.displayImage(activity, exhibit.mapPicLg, ivExhPopPic)
-        callOut = View.inflate(context, R.layout.layout_tile_map_pop, null)
         callOut.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
             override fun onViewAttachedToWindow(view: View) {
                 tileView.removeMarker(marker)

@@ -25,7 +25,7 @@ import com.qozix.tileview.graphics.BitmapProvider
 import com.qozix.tileview.widgets.ZoomPanLayout
 import java.util.*
 
-abstract class BaseMapFragment : Fragment() {
+abstract open class BaseMapFragment : Fragment() {
 
     companion object {
         val MAP_CONFIG = "MAP_CONFIG"
