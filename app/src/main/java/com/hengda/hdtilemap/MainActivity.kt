@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.hengda.hdtilemap.app.AppConfig
 import com.hengda.hdtilemap.bean.ExhibitBean
-import com.hengda.smart.wusu.m.db.dbHelper
+import com.hengda.hdtilemap.db.dbHelper
 import com.hengda.zwf.oktilemap.common.Intents
 import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.config.MapConfigBuilder
@@ -13,6 +13,7 @@ import com.hengda.zwf.oktilemap.entity.BaseExhibit
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -76,11 +77,13 @@ class MainActivity : AppCompatActivity() {
     private fun loadExhibit() {
         doAsync {
             var list = dbHelper.use {
-                select("EXHIBIT_CHINESE").parseList(ExhibitBean.PARSER)
+                select("EXHIBIT_CHINESE").whereSimple("MapId=$mapId").parseList(ExhibitBean.PARSER)
             }
-            exhibitList.clear()
-            exhibitList.addAll(list)
-            showMarker(exhibitList)
+            uiThread {
+                exhibitList = ArrayList<BaseExhibit>()
+                exhibitList.addAll(list)
+                showMarker(exhibitList)
+            }
         }
     }
 
