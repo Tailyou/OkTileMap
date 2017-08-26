@@ -246,11 +246,11 @@ abstract class BaseMapFragment : Fragment() {
     fun showMarker() {
         hideMarker()
         if (mapConfig.isMerge) {
-            val copy = MergeUtil.copy(exhibits)
             if (tileView.scale >= mapConfig.mergeScale) {
-                placeNormalMarker(copy)
+                placeNormalMarker(exhibits)
                 isMergeStatus = false
             } else {
+                val copy = MergeUtil.copy(exhibits)
                 val merge = MergeUtil.merge(copy, mapConfig.mergeDistance)
                 placeMergeMarker(merge)
                 isMergeStatus = true

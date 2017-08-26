@@ -1,16 +1,12 @@
 apply plugin: 'com.android.application'
 
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.hengda.zwf.tileview"
-        minSdkVersion 18
-        targetSdkVersion 26
+        applicationId "com.hengda.hdtilemap"
+        minSdkVersion 15
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -24,9 +20,12 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation project(':library')
+    compile 'com.github.hotchemi:permissionsdispatcher:2.4.0'
+    annotationProcessor 'com.github.hotchemi:permissionsdispatcher-processor:2.4.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.squareup.sqlbrite:sqlbrite:0.6.3'
+    compile 'com.orhanobut:logger:1.11'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile project(':library')
 }
