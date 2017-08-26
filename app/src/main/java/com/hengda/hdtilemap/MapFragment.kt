@@ -13,7 +13,7 @@ import com.skyfishjy.library.RippleBackground
 class MapFragment : BaseMapFragment() {
 
     internal var rbPositioning: RippleBackground? = null
-    lateinit var callOut: View
+    internal var callOut: View? = null
 
     companion object {
         fun newInstance(mapConfig: MapConfig): MapFragment {
@@ -63,18 +63,19 @@ class MapFragment : BaseMapFragment() {
     }
 
     /**
-     * 显示Callout，点击或定位后的效果
+     * 点击或定位后显示Callout
      * @author 祝文飞（Tailyou）
      * @time 2017/4/28 17:14
      */
     override fun showCallout(exhibit: BaseExhibit) {
-        val marker = exhibitMarkerMap[exhibit.fileNo]
+        if (callOut != null) tileView.removeCallout(callOut)
         callOut = View.inflate(context, R.layout.layout_tile_map_pop, null)
-        val tvExhName = callOut.findViewById(R.id.tvExhName) as TextView
-        val ivExhPopPic = callOut.findViewById(R.id.ivExhPopPic) as ImageView
+        val tvExhName = callOut?.findViewById(R.id.tvExhName) as TextView
+        val ivExhPopPic = callOut?.findViewById(R.id.ivExhPopPic) as ImageView
         tvExhName.text = exhibit.name
         imageLoader.displayImage(activity, exhibit.mapPicLg, ivExhPopPic)
-        callOut.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+        val marker = exhibitMarkerMap[exhibit.fileNo]
+        callOut?.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
             override fun onViewAttachedToWindow(view: View) {
                 tileView.removeMarker(marker)
             }
@@ -86,7 +87,7 @@ class MapFragment : BaseMapFragment() {
         if (tileView.scale < 1) {
             tileView.scale = 1f
         }
-        tileView.slideToAndCenter(exhibit.locX, exhibit.locY)
+        //tileView.slideToAndCenter(exhibit.locX, exhibit.locY)
         tileView.addCallout(callOut, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
     }
 
