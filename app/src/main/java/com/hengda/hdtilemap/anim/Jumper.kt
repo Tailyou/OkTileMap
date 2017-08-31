@@ -8,21 +8,21 @@ import android.view.animation.TranslateAnimation
 import com.pawegio.kandroid.animListener
 
 /**
- * 跳动动效-参考自HDTileView
+ * 跳动动效-参考自 HDTileView（by 白世伟）
  * @author 祝文飞（Tailyou）
  * @time 2017/4/28 15:58
  */
-class Jumper(duration: Long, offset: Int) {
+class Jumper(duration: Long, offset: Float) {
 
     private val mAniDown: Animation
     private val mAniUp: Animation
     private var mView: View? = null
 
     init {
-        mAniUp = TranslateAnimation(0f, 0f, 0f, (-offset).toFloat())
+        mAniUp = TranslateAnimation(0f, 0f, 0f, -offset)
         mAniUp.interpolator = DecelerateInterpolator()
         mAniUp.duration = duration
-        mAniDown = TranslateAnimation(0f, 0f, (-offset).toFloat(), 0f)
+        mAniDown = TranslateAnimation(0f, 0f, -offset, 0f)
         mAniDown.interpolator = AccelerateInterpolator()
         mAniDown.duration = duration
         mAniUp.animListener {

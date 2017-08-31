@@ -20,44 +20,40 @@
 
         <TextView
             android:id="@+id/tvRoute"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:text="Route"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvMarker"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:text="Marker"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvAutoNo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:text="AutoNo"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvLocation"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:text="Location"
             android:textColor="@android:color/white"
             android:textSize="14sp" />
