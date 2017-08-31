@@ -123,27 +123,36 @@ abstract open class BaseMapFragment : Fragment() {
         tileView.setScaleLimits(mapConfig.minScale, mapConfig.maxScale)
         tileView.setMinimumScaleMode(mapConfig.minimumScaleMode)
         tileView.addZoomPanListener(object : ZoomPanLayout.ZoomPanListener {
-            override fun onPanBegin(i: Int, i1: Int, origination: ZoomPanLayout.ZoomPanListener.Origination) {}
+            override fun onPanBegin(i: Int, i1: Int, origination: ZoomPanLayout.ZoomPanListener.Origination?) {}
 
-            override fun onPanUpdate(i: Int, i1: Int, origination: ZoomPanLayout.ZoomPanListener.Origination) {}
+            override fun onPanUpdate(i: Int, i1: Int, origination: ZoomPanLayout.ZoomPanListener.Origination?) {}
 
-            override fun onPanEnd(i: Int, i1: Int, origination: ZoomPanLayout.ZoomPanListener.Origination) {}
+            override fun onPanEnd(i: Int, i1: Int, origination: ZoomPanLayout.ZoomPanListener.Origination?) {}
 
-            override fun onZoomBegin(v: Float, origination: ZoomPanLayout.ZoomPanListener.Origination) {}
+            override fun onZoomBegin(v: Float, origination: ZoomPanLayout.ZoomPanListener.Origination?) {}
 
-            override fun onZoomUpdate(v: Float, origination: ZoomPanLayout.ZoomPanListener.Origination) {
-                if (mapConfig.isMerge) {
-                    if (v < mapConfig.mergeScale && !isMergeStatus) {
-                        showMarker()
-                    }
-                    if (v > mapConfig.mergeScale && isMergeStatus) {
-                        showMarker()
-                    }
-                }
+            override fun onZoomUpdate(v: Float, origination: ZoomPanLayout.ZoomPanListener.Origination?) {
+                onZoomChange(v)
             }
 
-            override fun onZoomEnd(scale: Float, origination: ZoomPanLayout.ZoomPanListener.Origination) {}
+            override fun onZoomEnd(v: Float, origination: ZoomPanLayout.ZoomPanListener.Origination?) {
+                onZoomChange(v)
+            }
         })
+    }
+
+    /**
+     * 根据缩放状态变化：显示聚合展项/全部展项
+     */
+    private fun onZoomChange(v: Float) {
+        if (mapConfig.isMerge) {
+            if (v < mapConfig.mergeScale && !isMergeStatus) {
+                showMarker()
+            }
+            if (v > mapConfig.mergeScale && isMergeStatus) {
+                showMarker()
+            }
+        }
     }
 
     /**
