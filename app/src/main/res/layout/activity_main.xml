@@ -62,17 +62,6 @@
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tvHighLight"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:text="HighLight"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
-
     </LinearLayout>
 
 </FrameLayout>

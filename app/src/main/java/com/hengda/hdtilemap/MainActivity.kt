@@ -45,9 +45,6 @@ class MainActivity : AppCompatActivity() {
         tvAutoNo.setOnClickListener { receiveAutoNo(Random().nextInt(100)) }
         //我的位置
         tvLocation.setOnClickListener { toMyLocation() }
-        //高亮
-        tvHighLight.setOnClickListener {
-        }
         showMap()
     }
 
