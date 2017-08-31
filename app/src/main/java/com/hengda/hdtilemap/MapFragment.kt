@@ -87,7 +87,7 @@ class MapFragment : BaseMapFragment() {
         if (tileView.scale < 1) {
             tileView.scale = 1f
         }
-        tileView.scrollToAndCenter(exhibit.locX, exhibit.locY)
+        tileView.slideToAndCenter(exhibit.locX, exhibit.locY)
         tileView.addCallout(callOut, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
     }
 

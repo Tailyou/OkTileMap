@@ -277,7 +277,7 @@ abstract open class BaseMapFragment : Fragment() {
             mergeMarker.setOnClickListener {
                 val (locX, locY) = mergeMarker.tag as Location
                 tileView.scale = mapConfig.mergeScale
-                tileView.scrollToAndCenter(locX, locY)
+                tileView.slideToAndCenter(locX, locY)
                 showMarker()
             }
             tileView.addMarker(mergeMarker, averLoc.locX, averLoc.locY, mapConfig.anchorX, mapConfig.anchorY)
