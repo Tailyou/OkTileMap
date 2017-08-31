@@ -2,11 +2,7 @@ package com.hengda.zwf.oktilemap.config
 
 import com.qozix.tileview.widgets.ZoomPanLayout
 
-/**
- * 地图配置参数构造者
- * @author 祝文飞（Tailyou）
- * @time 2017/4/28 11:11
- */
+//地图配置参数构造者
 class MapConfigBuilder {
 
     private var mapId: Int = 0

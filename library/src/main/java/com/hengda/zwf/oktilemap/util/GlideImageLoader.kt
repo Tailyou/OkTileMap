@@ -8,10 +8,6 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 
-/**
- * @author 祝文飞（Tailyou）
- * @time 2017/7/12 17:03
- */
 class GlideImageLoader {
 
     fun displayImage(context: Context, path: String, imageView: ImageView) {

@@ -1,13 +1,9 @@
-package com.hengda.hdtilemap.app
+package com.tailyou.tilemap.app
 
 
 import android.os.Environment
 
-/**
- * App配置类
- * @author 祝文飞（Tailyou）
- * @time 2017/4/28 15:58
- */
+//App配置类
 object AppConfig {
 
     //    获取默认文件存储目录

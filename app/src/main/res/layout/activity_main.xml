@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hengda.hdtilemap.MainActivity">
+    tools:context="com.hengda.hdtilemap.com.tailyou.tailmap.MainActivity">
 
     <FrameLayout
         android:id="@+id/flMapContainer"

@@ -1,14 +1,15 @@
-package com.hengda.hdtilemap
+package com.tailyou.tilemap
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.hengda.hdtilemap.app.AppConfig
-import com.hengda.hdtilemap.bean.ExhibitBean
-import com.hengda.hdtilemap.db.dbHelper
+import com.hengda.hdtilemap.R
 import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.config.MapConfigBuilder
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
 import com.hengda.zwf.oktilemap.util.MapUtil
+import com.tailyou.tilemap.app.AppConfig
+import com.tailyou.tilemap.bean.ExhibitBean
+import com.tailyou.tilemap.db.dbHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.doAsync

@@ -3,11 +3,7 @@ package com.hengda.zwf.oktilemap.entity
 import java.io.Serializable
 import java.lang.RuntimeException
 
-/**
- * 展项基类
- * @author 祝文飞（Tailyou）
- * @time 2017/4/28 15:51
- */
+//展项基类
 open class BaseExhibit(var autoNo: Int, var fileNo: String, var name: String,
                        var locX: Double, var locY: Double,
                        var mapPicLg: String, var mapPicSm: String) : Cloneable, Serializable {

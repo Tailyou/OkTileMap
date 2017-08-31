@@ -1,16 +1,10 @@
-package com.hengda.hdtilemap.db
+package com.tailyou.tilemap.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import com.hengda.hdtilemap.app.AppConfig
+import com.tailyou.tilemap.app.AppConfig
 import org.jetbrains.anko.db.ManagedSQLiteOpenHelper
 
-/**
- * 作者：祝文飞（Tailyou）
- * 邮箱：tailyou@163.com
- * 时间：2017/8/4 10:34
- * 描述：
- */
 class DbOpenHelper(context: Context) : ManagedSQLiteOpenHelper(context, AppConfig.dbFilePath, null, 1) {
 
     companion object {

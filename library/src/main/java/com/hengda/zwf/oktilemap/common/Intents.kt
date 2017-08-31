@@ -1,11 +1,5 @@
 package com.hengda.zwf.oktilemap.common
 
-/**
- * 作者：祝文飞（Tailyou）
- * 邮箱：tailyou@163.com
- * 时间：2017/4/28 11:59
- * 描述：
- */
 object Intents {
 
     object Action {

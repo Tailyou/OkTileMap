@@ -112,9 +112,7 @@ abstract open class BaseMapFragment : Fragment() {
         tileView.destroy()
     }
 
-    /**
-     * 初始化TileView
-     */
+    //初始化TileView
     fun initTileView() {
         tileView = TileView(context)
         tileView.setSize(mapConfig.sizeWidth, mapConfig.sizeHeight)
@@ -141,9 +139,7 @@ abstract open class BaseMapFragment : Fragment() {
         })
     }
 
-    /**
-     * 根据缩放状态变化：显示聚合展项/全部展项
-     */
+    //根据缩放状态变化：显示聚合展项/全部展项
     private fun onZoomChange(v: Float) {
         if (mapConfig.isMerge) {
             if (v < mapConfig.mergeScale && !isMergeStatus) {
@@ -155,11 +151,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 添加各级瓦片
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 11:37
-     */
+    //添加各级瓦片
     fun addDetailLevel() {
         tileView.setBitmapProvider(bitmapProvider)
         if (mapConfig.isFormatNew) {
@@ -175,11 +167,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 设置底图
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 11:37
-     */
+    //设置底图
     fun setDownSample() {
         if (mapConfig.isDownSample) {
             val downSample = ImageView(context)
@@ -188,11 +176,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 设置初始缩放比例
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 11:37
-     */
+    //设置初始缩放比例
     fun setInitScale(initScale: Float) {
         tileView.post {
             if (tileView != null) {
@@ -201,11 +185,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 隐藏路线
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 13:22
-     */
+    //隐藏路线
     fun hideRoute() {
         if (ivRoute != null) {
             if (bmRoute != null && !bmRoute!!.isRecycled) {
@@ -216,11 +196,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 显示路线
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 11:51
-     */
+    //显示路线
     fun showRoute() {
         if (!TextUtils.isEmpty(routePath)) {
             tileView.post {
@@ -231,11 +207,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 隐藏Marker
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 16:24
-     */
+    //隐藏Marker
     fun hideMarker() {
         for (marker in exhibitMarkerMap.values) {
             tileView.removeMarker(marker)
@@ -247,11 +219,7 @@ abstract open class BaseMapFragment : Fragment() {
         mergeMarkerList.clear()
     }
 
-    /**
-     * 显示Marker
-     * @author 祝文飞（Tailyou）
-     * @tme 2017/4/28 16:23
-     */
+    //显示Marker
     fun showMarker() {
         hideMarker()
         if (mapConfig.isMerge) {
@@ -287,11 +255,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 收号
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 17:00
-     */
+    //收号
     fun receiveNo(autoNo: Int) {
         if (autoNo != 0) {
             for (exhibit in exhibits) {
@@ -305,11 +269,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 保存定位位置
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/29 10:34
-     */
+    //保存定位位置
     private fun saveLocation(exhibit: BaseExhibit) {
         if (location == null) {
             location = Location(exhibit.locX, exhibit.locY)
@@ -319,11 +279,7 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 回到定位位置
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/29 10:26
-     */
+    //回到定位位置
     private fun toMyLocation() {
         if (location == null) {
             Toast.makeText(context, "没有位置信息", Toast.LENGTH_SHORT).show()
@@ -332,32 +288,16 @@ abstract open class BaseMapFragment : Fragment() {
         }
     }
 
-    /**
-     * 生成Marker
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 14:07
-     */
+    //生成展项Marker
     abstract fun genExhibitMarker(exhibit: BaseExhibit): ImageView
 
-    /**
-     * 生成Marker
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 14:07
-     */
+    //生成聚合Marker
     abstract fun genMergeMarker(list: List<BaseExhibit>, averLoc: Location): ImageView
 
-    /**
-     * 定位
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 17:41
-     */
+    //定位
     abstract fun positioning(exhibit: BaseExhibit)
 
-    /**
-     * 显示展品定位大图
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 17:14
-     */
+    //显示展品定位大图
     abstract fun showCallout(exhibit: BaseExhibit)
 
 }

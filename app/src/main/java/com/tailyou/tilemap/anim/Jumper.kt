@@ -1,4 +1,4 @@
-package com.hengda.hdtilemap.anim
+package com.tailyou.tilemap.anim
 
 import android.view.View
 import android.view.animation.AccelerateInterpolator
@@ -7,11 +7,7 @@ import android.view.animation.DecelerateInterpolator
 import android.view.animation.TranslateAnimation
 import com.pawegio.kandroid.animListener
 
-/**
- * 跳动动效-参考自 HDTileView（by 白世伟）
- * @author 祝文飞（Tailyou）
- * @time 2017/4/28 15:58
- */
+//跳动动效
 class Jumper(duration: Long, offset: Float) {
 
     private val mAniDown: Animation

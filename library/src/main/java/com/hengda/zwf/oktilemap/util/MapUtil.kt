@@ -6,12 +6,6 @@ import com.hengda.zwf.oktilemap.common.Intents
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
 import java.util.*
 
-/**
- * 作者：祝文飞（Tailyou）
- * 邮箱：tailyou@163.com
- * 时间：2017/7/27 16:17
- * 描述：MapUtil
- */
 object MapUtil {
 
     fun showMarker(mContext: Context, mapId: Int, arrayList: ArrayList<BaseExhibit>) {

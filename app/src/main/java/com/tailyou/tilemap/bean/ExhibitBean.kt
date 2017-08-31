@@ -1,15 +1,8 @@
-package com.hengda.hdtilemap.bean
+package com.tailyou.tilemap.bean
 
-import com.hengda.hdtilemap.app.AppConfig
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
+import com.tailyou.tilemap.app.AppConfig
 import org.jetbrains.anko.db.RowParser
-
-/**
- * 作者：Tailyou
- * 时间：2016/3/7 09:06
- * 邮箱：tailyou@163.com
- * 描述：展项
- */
 
 //展项
 class ExhibitBean(autoNo: Int, fileNo: String, name: String, locX: Double, locY: Double, mapPicLg: String, mapPicSm: String) : BaseExhibit(autoNo, fileNo, name, locX, locY, mapPicLg, mapPicSm) {

@@ -4,12 +4,6 @@ import com.hengda.zwf.oktilemap.entity.BaseExhibit
 import com.hengda.zwf.oktilemap.entity.Location
 import java.util.*
 
-/**
- * 作者：祝文飞（Tailyou）
- * 邮箱：tailyou@163.com
- * 时间：2017/7/20 8:57
- * 描述：MergeUtil
- */
 object MergeUtil {
 
     /**

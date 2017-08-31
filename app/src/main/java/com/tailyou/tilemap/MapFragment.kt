@@ -1,16 +1,17 @@
-package com.hengda.hdtilemap
+package com.tailyou.tilemap
 
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.hengda.hdtilemap.anim.Jumper
+import com.hengda.hdtilemap.R
 import com.hengda.zwf.oktilemap.BaseMapFragment
 import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
 import com.hengda.zwf.oktilemap.entity.Location
 import com.skyfishjy.library.RippleBackground
+import com.tailyou.tilemap.anim.Jumper
 import org.jetbrains.anko.find
 
 class MapFragment : BaseMapFragment() {
@@ -28,11 +29,7 @@ class MapFragment : BaseMapFragment() {
         }
     }
 
-    /**
-     * 定位
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 17:41
-     */
+    //定位
     override fun positioning(exhibit: BaseExhibit) {
         if (rbPositioning != null) {
             rbPositioning!!.stopRippleAnimation()
@@ -43,11 +40,7 @@ class MapFragment : BaseMapFragment() {
         tileView.addMarker(rbPositioning, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
     }
 
-    /**
-     * 生成展项Marker
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 14:07
-     */
+    //生成展项Marker
     override fun genExhibitMarker(exhibit: BaseExhibit): ImageView {
         val marker = ImageView(context)
         imageLoader.displayImage(context, exhibit.mapPicLg, marker, 49, 59)
@@ -55,10 +48,7 @@ class MapFragment : BaseMapFragment() {
         return marker
     }
 
-    /**
-     * 生成聚合Marker
-     * @return
-     */
+    //生成聚合Marker
     override fun genMergeMarker(list: List<BaseExhibit>, averLoc: Location): ImageView {
         val marker = ImageView(context)
         marker.setImageResource(R.mipmap.ic_map_merge)
@@ -70,11 +60,7 @@ class MapFragment : BaseMapFragment() {
         return marker
     }
 
-    /**
-     * 点击或定位后显示Callout
-     * @author 祝文飞（Tailyou）
-     * @time 2017/4/28 17:14
-     */
+    //点击或定位后显示Callout
     override fun showCallout(exhibit: BaseExhibit) {
         if (callOut != null) tileView.removeCallout(callOut)
         callOut = View.inflate(context, R.layout.layout_tile_map_pop, null)
