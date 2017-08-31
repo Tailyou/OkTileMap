@@ -72,11 +72,11 @@ class MapFragment : BaseMapFragment() {
         val marker = exhibitMarkerMap[exhibit.fileNo]
         callOut?.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
             override fun onViewAttachedToWindow(view: View) {
-                tileView.removeMarker(marker)
+                if (marker != null) tileView.removeMarker(marker)
             }
 
             override fun onViewDetachedFromWindow(view: View) {
-                tileView.addMarker(marker, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
+                if (marker != null) tileView.addMarker(marker, exhibit.locX, exhibit.locY, mapConfig.anchorX, mapConfig.anchorY)
             }
         })
         if (tileView.scale < 1) {
