@@ -11,6 +11,7 @@ import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
 import com.hengda.zwf.oktilemap.entity.Location
 import com.skyfishjy.library.RippleBackground
+import org.jetbrains.anko.find
 
 class MapFragment : BaseMapFragment() {
 
@@ -77,11 +78,11 @@ class MapFragment : BaseMapFragment() {
     override fun showCallout(exhibit: BaseExhibit) {
         if (callOut != null) tileView.removeCallout(callOut)
         callOut = View.inflate(context, R.layout.layout_tile_map_pop, null)
-        val tvExhName = callOut?.findViewById(R.id.tvExhName) as TextView
-        val ivExhPopPic = callOut?.findViewById(R.id.ivExhPopPic) as ImageView
-        tvExhName.text = exhibit.name
-        imageLoader.displayImage(activity, exhibit.mapPicLg, ivExhPopPic)
-        val jumper = Jumper(600, 30)
+        val tvExhName = callOut?.find<TextView>(R.id.tvExhName)
+        val ivExhPopPic = callOut?.find<ImageView>(R.id.ivExhPopPic)
+        tvExhName?.text = exhibit.name
+        imageLoader.displayImage(activity, exhibit.mapPicLg, ivExhPopPic!!)
+        val jumper = Jumper(600L, 30F)
         jumper.attachToView(ivExhPopPic)
         val marker = exhibitMarkerMap[exhibit.fileNo]
         callOut?.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
