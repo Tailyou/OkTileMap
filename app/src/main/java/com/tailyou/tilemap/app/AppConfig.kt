@@ -8,7 +8,7 @@ object AppConfig {
 
     //    获取默认文件存储目录
     val defaultFileDir: String
-        get() = Environment.getExternalStorageDirectory().absolutePath + "/JinSha_Res/"
+        get() = Environment.getExternalStorageDirectory().absolutePath + "/TailRes/"
 
     //    获取数据库文件路径
     val dbFilePath: String
