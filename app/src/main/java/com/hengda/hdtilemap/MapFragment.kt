@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.hengda.hdtilemap.anim.Jumper
 import com.hengda.zwf.oktilemap.BaseMapFragment
 import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
@@ -80,6 +81,8 @@ class MapFragment : BaseMapFragment() {
         val ivExhPopPic = callOut?.findViewById(R.id.ivExhPopPic) as ImageView
         tvExhName.text = exhibit.name
         imageLoader.displayImage(activity, exhibit.mapPicLg, ivExhPopPic)
+        val jumper = Jumper(600, 30)
+        jumper.attachToView(ivExhPopPic)
         val marker = exhibitMarkerMap[exhibit.fileNo]
         callOut?.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
             override fun onViewAttachedToWindow(view: View) {
