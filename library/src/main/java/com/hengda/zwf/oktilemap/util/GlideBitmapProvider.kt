@@ -10,7 +10,7 @@ import com.qozix.tileview.tiles.Tile
 
 import java.util.concurrent.ExecutionException
 
-class BitmapProviderGlide : BitmapProvider {
+class GlideBitmapProvider : BitmapProvider {
 
     override fun getBitmap(tile: Tile, context: Context): Bitmap? {
         val data = tile.data

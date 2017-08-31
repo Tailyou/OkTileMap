@@ -17,7 +17,7 @@ import com.hengda.zwf.oktilemap.common.Intents
 import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
 import com.hengda.zwf.oktilemap.entity.Location
-import com.hengda.zwf.oktilemap.util.BitmapProviderGlide
+import com.hengda.zwf.oktilemap.util.GlideBitmapProvider
 import com.hengda.zwf.oktilemap.util.GlideImageLoader
 import com.hengda.zwf.oktilemap.util.MergeUtil
 import com.qozix.tileview.TileView
@@ -91,11 +91,11 @@ abstract open class BaseMapFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bitmapProvider = BitmapProviderGlide()
+        bitmapProvider = GlideBitmapProvider()
         imageLoader = GlideImageLoader()
         mapConfig = arguments.getSerializable(MAP_CONFIG) as MapConfig
-        mapId = mapConfig.mapId
         baseMapPath = mapConfig.baseMapPath
+        mapId = mapConfig.mapId
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

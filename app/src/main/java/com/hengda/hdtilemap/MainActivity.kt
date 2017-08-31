@@ -1,15 +1,14 @@
 package com.hengda.hdtilemap
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.hengda.hdtilemap.app.AppConfig
 import com.hengda.hdtilemap.bean.ExhibitBean
 import com.hengda.hdtilemap.db.dbHelper
-import com.hengda.zwf.oktilemap.common.Intents
 import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.config.MapConfigBuilder
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
+import com.hengda.zwf.oktilemap.util.MapUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.doAsync
@@ -67,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         return MapConfigBuilder()
                 .setBaseMapString(AppConfig.mapFilePath + mapId)
                 .setMapId(mapId)
+                .setFormatNew(true)
                 .setMerge(true, 1f, 300f)
                 .setSize(3090, 2273)
                 .setInitScale(0f)
@@ -89,48 +89,36 @@ class MainActivity : AppCompatActivity() {
 
     //显示展品Marker
     private fun showMarker(arrayList: ArrayList<BaseExhibit>) {
-        val intent = Intent(Intents.Action.SHOW_MARKERS)
-        intent.putExtra(Intents.Extra.MAP_ID, mapId)
-        intent.putExtra(Intents.Extra.MARKERS, arrayList)
-        sendBroadcast(intent)
+        MapUtil.showMarker(this, mapId, arrayList)
         isMarkerShowing = true
     }
 
     //隐藏展品Marker
     private fun hideMarker() {
-        val intent = Intent(Intents.Action.HIDE_MARKERS)
-        intent.putExtra(Intents.Extra.MAP_ID, mapId)
-        sendBroadcast(intent)
+        MapUtil.hideMarker(this, mapId)
         isMarkerShowing = false
     }
 
     //显示路线
-    private fun showRoute(routeImgPath: String) {
-        val intent = Intent(Intents.Action.SHOW_ROUTE)
-        intent.putExtra(Intents.Extra.ROUTE_IMG_PATH, routeImgPath)
-        sendBroadcast(intent)
+    private fun showRoute(routePath: String) {
+        MapUtil.showRoute(this, mapId, routePath)
         isRouteShowing = true
     }
 
     //隐藏路线
     private fun hideRoute() {
-        val intent = Intent(Intents.Action.HIDE_ROUTE)
-        sendBroadcast(intent)
+        MapUtil.hideRoute(this, mapId)
         isRouteShowing = false
     }
 
     //收到多模号
     private fun receiveAutoNo(autoNo: Int) {
-        val intent = Intent(Intents.Action.RECEIVE_NO)
-        intent.putExtra(Intents.Extra.AUTO_NO, autoNo)
-        sendBroadcast(intent)
+        MapUtil.onReceiveAutoNo(this, autoNo)
     }
 
     //回到我的位置
     private fun toMyLocation() {
-        val intent = Intent(Intents.Action.TO_MY_LOCATION)
-        intent.putExtra(Intents.Extra.MAP_ID, mapId)
-        sendBroadcast(intent)
+        MapUtil.slide2MyLocation(this, mapId)
     }
 
 }
