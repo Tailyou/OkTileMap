@@ -80,7 +80,7 @@ HdTileMap中内置`BaseMapFragment`，封装了大量的共性功能，对于需
     //传入路线图片路径
     private void showRoute(String routeImgPath) {
         Intent intent = new Intent(Intents.Action.SHOW_ROUTE);
-        intent.putExtra(Intents.EXTRA.ROUTE_IMG_PATH, routeImgPath);
+        intent.putExtra(Intents.EXTRA.ROUTE_PATH, routeImgPath);
         sendBroadcast(intent);
     }
 ```

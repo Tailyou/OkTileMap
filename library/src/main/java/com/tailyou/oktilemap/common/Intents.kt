@@ -27,7 +27,7 @@ object Intents {
     object Extra {
 
         //路线图片路径
-        val ROUTE_IMG_PATH = "com.hengda.zwf.hdtilemap.ROUTE_IMG_PATH"
+        val ROUTE_PATH = "com.hengda.zwf.hdtilemap.ROUTE_PATH"
 
         //MARKERS
         val MARKERS = "com.hengda.zwf.hdtilemap.MARKERS"

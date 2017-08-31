@@ -53,7 +53,7 @@ abstract open class BaseMapFragment : Fragment() {
         override fun onReceive(context: Context, intent: Intent) {
             when (intent.action) {
                 Intents.Action.SHOW_ROUTE -> if (intent.getIntExtra(Intents.Extra.MAP_ID, -100) == mapId) {
-                    routePath = intent.getStringExtra(Intents.Extra.ROUTE_IMG_PATH)
+                    routePath = intent.getStringExtra(Intents.Extra.ROUTE_PATH)
                     showRoute()
                 }
                 Intents.Action.HIDE_ROUTE -> if (intent.getIntExtra(Intents.Extra.MAP_ID, -100) == mapId) {

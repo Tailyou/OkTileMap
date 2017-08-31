@@ -24,7 +24,7 @@ object MapUtil {
     fun showRoute(mContext: Context, mapId: Int, routePath: String) {
         val intent = Intent(Intents.Action.SHOW_ROUTE)
         intent.putExtra(Intents.Extra.MAP_ID, mapId)
-        intent.putExtra(Intents.Extra.ROUTE_IMG_PATH, routePath)
+        intent.putExtra(Intents.Extra.ROUTE_PATH, routePath)
         mContext.sendBroadcast(intent)
     }
 
