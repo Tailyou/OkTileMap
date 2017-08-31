@@ -1,7 +1,7 @@
-package com.hengda.zwf.oktilemap.util
+package com.tailyou.oktilemap.util
 
-import com.hengda.zwf.oktilemap.entity.BaseExhibit
-import com.hengda.zwf.oktilemap.entity.Location
+import com.tailyou.oktilemap.entity.BaseExhibit
+import com.tailyou.oktilemap.entity.Location
 import java.util.*
 
 object MergeUtil {

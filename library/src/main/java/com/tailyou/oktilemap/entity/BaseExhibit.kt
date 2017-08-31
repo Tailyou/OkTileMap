@@ -1,4 +1,4 @@
-package com.hengda.zwf.oktilemap.entity
+package com.tailyou.oktilemap.entity
 
 import java.io.Serializable
 import java.lang.RuntimeException

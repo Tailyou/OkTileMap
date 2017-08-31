@@ -1,4 +1,4 @@
-package com.hengda.zwf.oktilemap.config
+package com.tailyou.oktilemap.config
 
 import com.qozix.tileview.widgets.ZoomPanLayout
 

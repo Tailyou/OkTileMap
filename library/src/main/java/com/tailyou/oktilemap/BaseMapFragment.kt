@@ -1,4 +1,4 @@
-package com.hengda.zwf.oktilemap
+package com.tailyou.oktilemap
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -13,16 +13,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
-import com.hengda.zwf.oktilemap.common.Intents
-import com.hengda.zwf.oktilemap.config.MapConfig
-import com.hengda.zwf.oktilemap.entity.BaseExhibit
-import com.hengda.zwf.oktilemap.entity.Location
-import com.hengda.zwf.oktilemap.util.GlideBitmapProvider
-import com.hengda.zwf.oktilemap.util.GlideImageLoader
-import com.hengda.zwf.oktilemap.util.MergeUtil
 import com.qozix.tileview.TileView
 import com.qozix.tileview.graphics.BitmapProvider
 import com.qozix.tileview.widgets.ZoomPanLayout
+import com.tailyou.oktilemap.common.Intents
+import com.tailyou.oktilemap.config.MapConfig
+import com.tailyou.oktilemap.entity.BaseExhibit
+import com.tailyou.oktilemap.entity.Location
+import com.tailyou.oktilemap.util.GlideBitmapProvider
+import com.tailyou.oktilemap.util.GlideImageLoader
+import com.tailyou.oktilemap.util.MergeUtil
 import java.util.*
 
 abstract open class BaseMapFragment : Fragment() {

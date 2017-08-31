@@ -1,4 +1,4 @@
-package com.hengda.zwf.oktilemap.common
+package com.tailyou.oktilemap.common
 
 object Intents {
 

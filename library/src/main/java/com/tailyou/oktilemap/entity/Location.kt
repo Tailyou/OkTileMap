@@ -1,4 +1,4 @@
-package com.hengda.zwf.oktilemap.entity
+package com.tailyou.oktilemap.entity
 
 /**
  * 位置坐标

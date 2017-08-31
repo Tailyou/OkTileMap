@@ -1,9 +1,9 @@
-package com.hengda.zwf.oktilemap.util
+package com.tailyou.oktilemap.util
 
 import android.content.Context
 import android.content.Intent
-import com.hengda.zwf.oktilemap.common.Intents
-import com.hengda.zwf.oktilemap.entity.BaseExhibit
+import com.tailyou.oktilemap.common.Intents
+import com.tailyou.oktilemap.entity.BaseExhibit
 import java.util.*
 
 object MapUtil {

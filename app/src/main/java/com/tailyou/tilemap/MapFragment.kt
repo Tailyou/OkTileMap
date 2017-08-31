@@ -6,11 +6,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.hengda.hdtilemap.R
-import com.hengda.zwf.oktilemap.BaseMapFragment
-import com.hengda.zwf.oktilemap.config.MapConfig
-import com.hengda.zwf.oktilemap.entity.BaseExhibit
-import com.hengda.zwf.oktilemap.entity.Location
 import com.skyfishjy.library.RippleBackground
+import com.tailyou.oktilemap.BaseMapFragment
 import com.tailyou.tilemap.anim.Jumper
 import org.jetbrains.anko.find
 
