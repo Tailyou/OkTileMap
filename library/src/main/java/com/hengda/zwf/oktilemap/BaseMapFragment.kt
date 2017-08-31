@@ -271,17 +271,10 @@ abstract open class BaseMapFragment : Fragment() {
 
     private fun placeMergeMarker(merge: List<List<BaseExhibit>>) {
         for (list in merge) {
-            val mergeMarker = genMergeMarker()
             val averLoc = MergeUtil.calAverCoords(list)
-            mergeMarker.tag = averLoc
-            mergeMarker.setOnClickListener {
-                val (locX, locY) = mergeMarker.tag as Location
-                tileView.scale = mapConfig.mergeScale
-                tileView.slideToAndCenter(locX, locY)
-                showMarker()
-            }
-            tileView.addMarker(mergeMarker, averLoc.locX, averLoc.locY, mapConfig.anchorX, mapConfig.anchorY)
+            val mergeMarker = genMergeMarker(list, averLoc)
             mergeMarkerList.add(mergeMarker)
+            tileView.addMarker(mergeMarker, averLoc.locX, averLoc.locY, mapConfig.anchorX, mapConfig.anchorY)
         }
     }
 
@@ -351,7 +344,7 @@ abstract open class BaseMapFragment : Fragment() {
      * @author 祝文飞（Tailyou）
      * @time 2017/4/28 14:07
      */
-    abstract fun genMergeMarker(): ImageView
+    abstract fun genMergeMarker(list: List<BaseExhibit>, averLoc: Location): ImageView
 
     /**
      * 定位

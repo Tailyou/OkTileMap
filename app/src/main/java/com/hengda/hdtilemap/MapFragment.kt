@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.hengda.zwf.oktilemap.BaseMapFragment
 import com.hengda.zwf.oktilemap.config.MapConfig
 import com.hengda.zwf.oktilemap.entity.BaseExhibit
+import com.hengda.zwf.oktilemap.entity.Location
 import com.skyfishjy.library.RippleBackground
 
 class MapFragment : BaseMapFragment() {
@@ -56,9 +57,14 @@ class MapFragment : BaseMapFragment() {
      * 生成聚合Marker
      * @return
      */
-    override fun genMergeMarker(): ImageView {
+    override fun genMergeMarker(list: List<BaseExhibit>, averLoc: Location): ImageView {
         val marker = ImageView(context)
         marker.setImageResource(R.mipmap.ic_map_merge)
+        marker.setOnClickListener {
+            tileView.scale = mapConfig.mergeScale
+            tileView.slideToAndCenter(averLoc.locX, averLoc.locY)
+            showMarker()
+        }
         return marker
     }
 
