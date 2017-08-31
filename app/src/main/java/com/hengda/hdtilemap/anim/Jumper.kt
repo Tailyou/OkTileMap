@@ -7,6 +7,11 @@ import android.view.animation.DecelerateInterpolator
 import android.view.animation.TranslateAnimation
 import com.pawegio.kandroid.animListener
 
+/**
+ * 跳动动效-参考自HDTileView
+ * @author 祝文飞（Tailyou）
+ * @time 2017/4/28 15:58
+ */
 class Jumper(duration: Long, offset: Int) {
 
     private val mAniDown: Animation
