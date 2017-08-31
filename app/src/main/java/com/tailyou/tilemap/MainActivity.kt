@@ -2,11 +2,10 @@ package com.tailyou.tilemap
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.hengda.hdtilemap.R
-import com.hengda.zwf.oktilemap.config.MapConfig
-import com.hengda.zwf.oktilemap.config.MapConfigBuilder
-import com.hengda.zwf.oktilemap.entity.BaseExhibit
-import com.hengda.zwf.oktilemap.util.MapUtil
+import com.tailyou.oktilemap.config.MapConfig
+import com.tailyou.oktilemap.config.MapConfigBuilder
+import com.tailyou.oktilemap.entity.BaseExhibit
+import com.tailyou.oktilemap.util.MapUtil
 import com.tailyou.tilemap.app.AppConfig
 import com.tailyou.tilemap.bean.ExhibitBean
 import com.tailyou.tilemap.db.dbHelper

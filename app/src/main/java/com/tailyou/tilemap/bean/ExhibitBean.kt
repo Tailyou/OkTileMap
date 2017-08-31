@@ -1,6 +1,6 @@
 package com.tailyou.tilemap.bean
 
-import com.hengda.zwf.oktilemap.entity.BaseExhibit
+import com.tailyou.oktilemap.entity.BaseExhibit
 import com.tailyou.tilemap.app.AppConfig
 import org.jetbrains.anko.db.RowParser
 

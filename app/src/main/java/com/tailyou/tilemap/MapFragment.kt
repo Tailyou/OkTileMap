@@ -1,15 +1,17 @@
 package com.tailyou.tilemap
 
-
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.hengda.hdtilemap.R
 import com.skyfishjy.library.RippleBackground
 import com.tailyou.oktilemap.BaseMapFragment
+import com.tailyou.oktilemap.config.MapConfig
+import com.tailyou.oktilemap.entity.BaseExhibit
+import com.tailyou.oktilemap.entity.Location
 import com.tailyou.tilemap.anim.Jumper
 import org.jetbrains.anko.find
+
 
 class MapFragment : BaseMapFragment() {
 
