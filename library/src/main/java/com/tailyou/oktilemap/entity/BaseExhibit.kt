@@ -4,9 +4,9 @@ import java.io.Serializable
 import java.lang.RuntimeException
 
 //展项基类
-open class BaseExhibit(open var autoNo: Int, open var fileNo: String, open var name: String,
-                       open var locX: Double, open var locY: Double, open var mapPicLg: String,
-                       open var mapPicSm: String) : Cloneable, Serializable {
+data class BaseExhibit(var fileNo: String, var autoNo: Int, var name: String,
+                       var locX: Double, var locY: Double, var mapPicLg: String,
+                       var mapPicSm: String) : Cloneable, Serializable {
 
     public override fun clone(): BaseExhibit {
         val clone: BaseExhibit

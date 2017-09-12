@@ -7,7 +7,7 @@ import com.tailyou.oktilemap.config.MapConfigBuilder
 import com.tailyou.oktilemap.entity.BaseExhibit
 import com.tailyou.oktilemap.util.MapUtil
 import com.tailyou.tilemap.app.AppConfig
-import com.tailyou.tilemap.bean.ExhibitBean
+import com.tailyou.tilemap.bean.Exhibit
 import com.tailyou.tilemap.db.dbHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.db.select
@@ -74,11 +74,10 @@ class MainActivity : AppCompatActivity() {
     private fun loadExhibit() {
         doAsync {
             var list = dbHelper.use {
-                select("EXHIBIT_CHINESE").whereSimple("MapId=$mapId").parseList(ExhibitBean.PARSER)
+                select("EXHIBIT_CHINESE").whereSimple("MapId=$mapId").parseList(Exhibit.PARSER)
             }
             uiThread {
-                exhibitList = ArrayList<BaseExhibit>()
-                exhibitList.addAll(list)
+                val exhibitList = list.mapTo(ArrayList<BaseExhibit>()) { Exhibit.exhibit2BaseExhibit(it) }
                 showMarker(exhibitList)
             }
         }
