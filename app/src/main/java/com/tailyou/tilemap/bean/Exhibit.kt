@@ -3,6 +3,7 @@ package com.tailyou.tilemap.bean
 import com.tailyou.oktilemap.entity.BaseExhibit
 import com.tailyou.tilemap.app.AppConfig
 import org.jetbrains.anko.db.RowParser
+import java.util.*
 
 //展项
 data class Exhibit(var autoNo: Int, var fileNo: String, var name: String,
@@ -23,7 +24,8 @@ data class Exhibit(var autoNo: Int, var fileNo: String, var name: String,
         }
 
         fun exhibit2BaseExhibit(exhibit: Exhibit): BaseExhibit {
-            return BaseExhibit(exhibit.fileNo, exhibit.autoNo, exhibit.name, exhibit.locX, exhibit.locY, exhibit.mapPicLg, exhibit.mapPicSm)
+            return BaseExhibit(Random().nextInt(), exhibit.fileNo, exhibit.autoNo, exhibit.name,
+                    exhibit.locX, exhibit.locY, exhibit.mapPicLg, exhibit.mapPicSm)
         }
     }
 }
