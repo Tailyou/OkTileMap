@@ -4,7 +4,7 @@ import java.io.Serializable
 import java.lang.RuntimeException
 
 //展项基类
-data class BaseExhibit(var fileNo: String, var autoNo: Int, var name: String,
+data class BaseExhibit(var id: Int, var fileNo: String, var autoNo: Int, var name: String,
                        var locX: Double, var locY: Double, var mapPicLg: String,
                        var mapPicSm: String) : Cloneable, Serializable {
 
