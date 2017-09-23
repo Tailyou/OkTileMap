@@ -10,4 +10,9 @@ class MapConfig(var mapId: Int, var sizeWidth: Int, var sizeHeight: Int,
                 var initScale: Float, var minScale: Float, var maxScale: Float, var provider: Int,
                 var anchorX: Float, var anchorY: Float, var isFormatNew: Boolean, var isDownSample: Boolean,
                 var minimumScaleMode: ZoomPanLayout.MinimumScaleMode, var baseMapPath: String,
-                var isMerge: Boolean, var mergeScale: Float, var mergeDistance: Float) : Serializable
+                var isMerge: Boolean, var mergeScale: Float, var mergeDistance: Float) : Serializable {
+    companion object {
+        const val PROVIDER_PICASSO = 1
+        const val PROVIDER_GLIDE = 2
+    }
+}
