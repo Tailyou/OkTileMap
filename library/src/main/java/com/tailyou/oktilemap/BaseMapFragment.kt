@@ -18,11 +18,13 @@ import com.qozix.tileview.graphics.BitmapProvider
 import com.qozix.tileview.widgets.ZoomPanLayout
 import com.tailyou.oktilemap.common.Intents
 import com.tailyou.oktilemap.config.MapConfig
+import com.tailyou.oktilemap.config.MapConfigBuilder
 import com.tailyou.oktilemap.entity.BaseExhibit
 import com.tailyou.oktilemap.entity.Location
 import com.tailyou.oktilemap.util.GlideBitmapProvider
 import com.tailyou.oktilemap.util.GlideImageLoader
 import com.tailyou.oktilemap.util.MergeUtil
+import com.tailyou.oktilemap.util.PicassoBitmapProvider
 import java.util.*
 
 abstract open class BaseMapFragment : Fragment() {
@@ -91,9 +93,9 @@ abstract open class BaseMapFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bitmapProvider = GlideBitmapProvider()
         imageLoader = GlideImageLoader()
         mapConfig = arguments.getSerializable(MAP_CONFIG) as MapConfig
+        bitmapProvider = if (mapConfig.provider == MapConfigBuilder.PROVIDER_GLIDE) GlideBitmapProvider() else PicassoBitmapProvider()
         baseMapPath = mapConfig.baseMapPath
         mapId = mapConfig.mapId
     }

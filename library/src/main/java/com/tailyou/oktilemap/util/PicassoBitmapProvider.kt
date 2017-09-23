@@ -2,22 +2,22 @@ package com.tailyou.oktilemap.util
 
 import android.content.Context
 import android.graphics.Bitmap
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
+
 import com.qozix.tileview.graphics.BitmapProvider
 import com.qozix.tileview.tiles.Tile
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.Picasso
 
-class GlideBitmapProvider : BitmapProvider {
+class PicassoBitmapProvider : BitmapProvider {
 
     override fun getBitmap(tile: Tile, context: Context): Bitmap? {
         val data = tile.data
         if (data is String) {
             val unformattedFileName = tile.data as String
-            val formattedFileName = java.lang.String.format(unformattedFileName, tile.column, tile.row)
+            val formattedFileName = String.format(unformattedFileName, tile.column, tile.row)
             try {
-                return Glide.with(context).load(formattedFileName).asBitmap()
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .into(tile.width, tile.height)
+                return Picasso.with(context).load(formattedFileName)
+                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
                         .get()
             } catch (e: Exception) {
                 //ignore

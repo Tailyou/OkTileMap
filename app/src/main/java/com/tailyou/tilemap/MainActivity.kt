@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 .setBaseMapString(AppConfig.mapFilePath + mapId)
                 .setMapId(mapId)
                 .setFormatNew(true)
+                .setProvider(MapConfigBuilder.PROVIDER_PICASSO)
                 .setMerge(true, 1f, 300f)
                 .setSize(3090, 2273)
                 .setInitScale(0f)

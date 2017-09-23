@@ -5,6 +5,11 @@ import com.qozix.tileview.widgets.ZoomPanLayout
 //地图配置参数构造者
 class MapConfigBuilder {
 
+    companion object {
+        const val PROVIDER_PICASSO = 1
+        const val PROVIDER_GLIDE = 2
+    }
+
     private var mapId: Int = 0
     private var sizeWidth: Int = 0
     private var sizeHeight: Int = 0
@@ -15,6 +20,7 @@ class MapConfigBuilder {
     private var initScale = 0f
     private var minScale = 0f
     private var maxScale = 2f
+    private var provider = PROVIDER_PICASSO
     private var anchorX = -0.5f
     private var anchorY = -1.0f
     private var formatNew = true
@@ -52,6 +58,11 @@ class MapConfigBuilder {
 
     fun setAnchorX(anchorX: Float): MapConfigBuilder {
         this.anchorX = anchorX
+        return this
+    }
+
+    fun setProvider(provider: Int): MapConfigBuilder {
+        this.provider = provider
         return this
     }
 
@@ -101,7 +112,7 @@ class MapConfigBuilder {
         }
         return MapConfig(mapId, sizeWidth, sizeHeight,
                 boundLeft, boundTop, boundRight, boundBottom,
-                initScale, minScale, maxScale, anchorX, anchorY,
+                initScale, minScale, maxScale, provider, anchorX, anchorY,
                 formatNew, downSample, minimumScaleMode, baseMapPath,
                 merge, mergeScale, mergeDistance)
     }
