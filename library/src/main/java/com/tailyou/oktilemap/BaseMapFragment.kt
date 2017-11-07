@@ -283,7 +283,7 @@ abstract open class BaseMapFragment : Fragment() {
     //回到定位位置
     private fun toMyLocation() {
         if (location == null) {
-            Toast.makeText(context, "没有位置信息", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "暂无位置信息", Toast.LENGTH_SHORT).show()
         } else {
             tileView.slideToAndCenter(location!!.locX, location!!.locY)
         }
